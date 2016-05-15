@@ -5,16 +5,51 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Week4 RPG</title>
   <!-- Added link to the jQuery Library -->
-  <script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
+  <!--<script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>-->
+  <script src="assets/offline-link-library/jquery-2.2.3.js" ></script>
   <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-  <link rel="stylesheet" type="text/css" href="https://bootswatch.com/darkly/bootstrap.min.css"
+  <!--<link rel="stylesheet" type="text/css" href="https://bootswatch.com/darkly/bootstrap.min.css">-->
+  <link rel="stylesheet" type="text/css" href="assets/offline-link-library/bootstrap.css">
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 
 <body>
-<div>
+  <div class="container">
+  <div class="row title-row">
+  <h1 class="text-right col-md-4">The Expendables</h1>
+  <img  class="col-md-4 title-img" src="assets/images/expendables.jpg"  alt="Expendables" >
+  <h1 class="text-left col-md-4">RPG game</h1>
+  </div>
+    <section id="characters">
+      <div class="row center">
 
-</div>
-<script type="text/javascript" src = "assets/javascript/game.js"></script>
+        </div>
+
+            <div class="col-md-3">
+              <p class="text-center"> Stalone</p>
+              <img src="assets/images/stallone.jpg" class="center-block stallone char_img" alt="Stallone" height="100">
+              <p class="text-center health"> 150 </p>
+            </div>
+            <div class="col-md-3">
+              <p class="text-center"> Statham</p>
+            <img src="assets/images/statham.jpg" class="center-block statham char_img" alt="Statham" height="100">
+              <p class="text-center health"> 150 </p>
+            </div>
+            <div class="col-md-3">
+              <p class="text-center"> Lundgren</p>
+            <img src="assets/images/lundgren.jpg" class="center-block lundgren char_img" alt="Lundgren" height="100">
+              <p class="text-center health"> 150 </p>
+            </div>
+            <div class="col-md-3">
+              <p class="text-center"> Jet Li</p>
+            <img src="assets/images/jetli.jpg" class="center-block jetli char_img" alt="Jet Li" height="100">
+              <p class="text-center health"> 150 </p>
+            </div>
+
+
+      </div>
+    </section>
+  </div>
+<script type="text/javascript" src = "assets/javascript/week4_game.js"></script>
 </body>
 </html>
