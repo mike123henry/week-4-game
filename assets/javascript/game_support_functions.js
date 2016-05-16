@@ -37,7 +37,8 @@
           alert("problem with the code -- ! attackCharacterChoosen eTargetId =" + eTargetId );
           break;
       }//end switch(instructionLevel)
-    attackCharacterChoosen=true;
+      attackCharacterChoosen=true;
+      moveCharacterImg(attackCharacterChoosen, defendCharacterChoosen, attackObj);
     }//end of if !attackCharacterChoosen
     else if (attackCharacterChoosen === true && defendCharacterChoosen === false){
       switch(eTargetId){
@@ -58,8 +59,21 @@
           break;
       }//end switch(instructionLevel)
       defendCharacterChoosen=true;
+      moveCharacterImg(attackCharacterChoosen, defendCharacterChoosen, defendObj);
     }//end of else if !defendCharacterChoosen
     console.log("attackObj.id = " + attackObj.id);
+    console.log("attackObj.image = " + attackObj.image);
     console.log("defendObj.id = " + defendObj.id);
   }//end of assignCombatants()
+  function moveCharacterImg(attackCharacterChoosen, defendCharacterChoosen){
+    if (attackCharacterChoosen && !defendCharacterChoosen) {
+      console.log("attackObj.id = " + attackObj.id);
+      var attackerChoosenImg = document.getElementById(attackObj.id);
+      var attackCharacterImg = document.getElementById('attackerImg');
+      attackCharacterImg.src = attackerChoosenImg.src;
+      //var src1 = attackObj.image;
+      //console.log("src1 = " + src1.image);
+      //$("#attackerImg").attr("src", src1);
+    }// end of isAttacker move
+  }//end of moveCharacterImg()
 }//end of file
