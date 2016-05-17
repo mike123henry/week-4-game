@@ -19,6 +19,7 @@
   }//function outputInstructionsToHTML
 
   function assignCombatants(eTargetId){
+    console.log("eTargetId " + eTargetId + " attackCharacterChoosen " + attackCharacterChoosen +" defendCharacterChoosen " + defendCharacterChoosen)
     if (attackCharacterChoosen === false){
       switch(eTargetId){
         case "stallone":
@@ -38,9 +39,9 @@
           break;
       }//end switch(instructionLevel)
       attackCharacterChoosen=true;
-      moveCharacterImg(attackCharacterChoosen, defendCharacterChoosen, attackObj);
     }//end of if !attackCharacterChoosen
     else if (attackCharacterChoosen === true && defendCharacterChoosen === false){
+     console.log("eTargetId " + eTargetId + " attackCharacterChoosen " + attackCharacterChoosen +" defendCharacterChoosen " + defendCharacterChoosen)
       switch(eTargetId){
         case "stallone":
           defendObj=characterProfilesObj.stalloneObj;
@@ -59,21 +60,30 @@
           break;
       }//end switch(instructionLevel)
       defendCharacterChoosen=true;
-      moveCharacterImg(attackCharacterChoosen, defendCharacterChoosen, defendObj);
     }//end of else if !defendCharacterChoosen
+    moveCharacterImg();
     console.log("attackObj.id = " + attackObj.id);
     console.log("attackObj.image = " + attackObj.image);
     console.log("defendObj.id = " + defendObj.id);
+    console.log("defendObj.image = " + defendObj.image);
   }//end of assignCombatants()
-  function moveCharacterImg(attackCharacterChoosen, defendCharacterChoosen){
+  function moveCharacterImg(){
     if (attackCharacterChoosen && !defendCharacterChoosen) {
       console.log("attackObj.id = " + attackObj.id);
       var attackerChoosenImg = document.getElementById(attackObj.id);
       var attackCharacterImg = document.getElementById('attackerImg');
       attackCharacterImg.src = attackerChoosenImg.src;
-      //var src1 = attackObj.image;
-      //console.log("src1 = " + src1.image);
-      //$("#attackerImg").attr("src", src1);
-    }// end of isAttacker move
+      attackerChoosenImg.src = "";
+    }// end of Attacker move
+    else if (attackCharacterChoosen && defendCharacterChoosen) {
+      console.log("xx defendObj.id = " + defendObj.id);
+      console.log("xx defendObj.src = " + defendObj.image);
+      var defenderChoosenImg = document.getElementById(defendObj.id);
+      var defendCharacterImg = document.getElementById('defenderImg');
+      console.log("xx defendObj.id = " + defendObj.id);
+      console.log("defenderChoosenImg.src = " + defenderChoosenImg.src);
+      defendCharacterImg.src = defenderChoosenImg.src;
+      defenderChoosenImg.src = "";
+    }// end of Defender move
   }//end of moveCharacterImg()
 }//end of file
