@@ -19,7 +19,6 @@
   }//function outputInstructionsToHTML
 
   function assignCombatants(eTargetId){
-    console.log("eTargetId " + eTargetId + " attackCharacterChoosen " + attackCharacterChoosen +" defendCharacterChoosen " + defendCharacterChoosen)
     if (attackCharacterChoosen === false){
       switch(eTargetId){
         case "stallone":
@@ -41,7 +40,6 @@
       attackCharacterChoosen=true;
     }//end of if !attackCharacterChoosen
     else if (attackCharacterChoosen === true && defendCharacterChoosen === false){
-     console.log("eTargetId " + eTargetId + " attackCharacterChoosen " + attackCharacterChoosen +" defendCharacterChoosen " + defendCharacterChoosen)
       switch(eTargetId){
         case "stallone":
           defendObj=characterProfilesObj.stalloneObj;
@@ -62,28 +60,36 @@
       defendCharacterChoosen=true;
     }//end of else if !defendCharacterChoosen
     moveCharacterImg();
-    console.log("attackObj.id = " + attackObj.id);
-    console.log("attackObj.image = " + attackObj.image);
-    console.log("defendObj.id = " + defendObj.id);
-    console.log("defendObj.image = " + defendObj.image);
   }//end of assignCombatants()
   function moveCharacterImg(){
     if (attackCharacterChoosen && !defendCharacterChoosen) {
-      console.log("attackObj.id = " + attackObj.id);
-      var attackerChoosenImg = document.getElementById(attackObj.id);
-      var attackCharacterImg = document.getElementById('attackerImg');
-      attackCharacterImg.src = attackerChoosenImg.src;
-      attackerChoosenImg.src = "";
+      var attackerChoosenImg = $("#" + attackObj.name).attr('src');
+      $('#attackerImg').attr('src',attackerChoosenImg)
+      $('.' + attackObj.name).hide();
     }// end of Attacker move
     else if (attackCharacterChoosen && defendCharacterChoosen) {
-      console.log("xx defendObj.id = " + defendObj.id);
-      console.log("xx defendObj.src = " + defendObj.image);
-      var defenderChoosenImg = document.getElementById(defendObj.id);
-      var defendCharacterImg = document.getElementById('defenderImg');
-      console.log("xx defendObj.id = " + defendObj.id);
-      console.log("defenderChoosenImg.src = " + defenderChoosenImg.src);
-      defendCharacterImg.src = defenderChoosenImg.src;
-      defenderChoosenImg.src = "";
+      var defenderChoosenImg = $("#" + defendObj.name).attr('src');
+      $('#defenderImg').attr('src',defenderChoosenImg)
+      $('.' + defendObj.name).hide();
     }// end of Defender move
+    outputDmzHealthPoints()
   }//end of moveCharacterImg()
+  function doBattle(eTargetId){
+    defendObj.healthPoints -= attackObj.currentAttackPoints;
+    if (defendObj.healthPoints <= 0) {
+      defendObj.healthPoints=0;
+      defenderDead = true;
+    }
+    attackObj.healthPoints -= defendObj.returnAttackPoints;
+    if (attackObj.healthPoints <= 0) {
+      attackObj.healthPoints=0;
+      attackerDead = true;
+    }
+    attackObj.currentAttackPoints += attackObj.baseAttackPoints;
+    outputDmzHealthPoints()
+  }//end of attackFunction()
+  function outputDmzHealthPoints(){
+    $('#attackerHP').text(attackObj.healthPoints);
+    $('#defenderHP').text(defendObj.healthPoints);
+  }
 }//end of file

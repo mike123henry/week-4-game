@@ -5,7 +5,7 @@ var attackObj;
 var defendObj;
 var characterProfilesObj = {
       stalloneObj: {
-        id: "stallone",
+        name: "stallone",
         image: "assets/images/stallone.jpg",
         healthPoints: 150,
         baseAttackPoints: 25,
@@ -13,7 +13,7 @@ var characterProfilesObj = {
         returnAttackPoints: 15
       },
       stathamObj: {
-        id: "statham",
+        name: "statham",
         image: "assets/images/statham.jpg",
         healthPoints: 150,
         baseAttackPoints: 25,
@@ -21,7 +21,7 @@ var characterProfilesObj = {
         returnAttackPoints: 15
       },
       lundgrenObj: {
-        id: "lundgren",
+        name: "lundgren",
         image: "assets/images/lundgren.jpg",
         healthPoints: 150,
         baseAttackPoints: 25,
@@ -29,7 +29,7 @@ var characterProfilesObj = {
         returnAttackPoints: 15
       },
       jetliObj: {
-        id: "jetli",
+        name: "jetli",
         image: "assets/images/jetli.jpg",
         healthPoints: 150,
         baseAttackPoints: 25,
