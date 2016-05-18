@@ -16,12 +16,15 @@
     $('#statham-p2').text(characterProfilesObj.stathamObj.healthPoints);
     $('#lundgren-p2').text(characterProfilesObj.lundgrenObj.healthPoints);
     $('#jetli-p2').text(characterProfilesObj.jetliObj.healthPoints);
+    $('#dmzAttack').text('Click character image to choose your character');
   }
   function initNextBadGuy(){
     var tmp = $('#defenderImg').attr('src');
     $("#" + defendObj.name).attr('src', tmp);
      $("." + defendObj.name).show();
      $("#" + defendObj.name + "-p2").text(0);
+     $('.defender').hide();
+     $('#dmzImg').hide();
     defendObj={};
     gameOver=false;
   }
@@ -31,6 +34,12 @@
       attackObj=characterProfilesObj[tmp];
       attackCharacterChoosen=true;
     }//end of if !attackCharacterChoosen
+    else if (attackCharacterChoosen === true && defendCharacterChoosen === false && badGuys >0 && badGuys < 3) {
+      initNextBadGuy();
+      var tmp = eTargetId +"Obj"
+      defendObj=characterProfilesObj[tmp];
+      defendCharacterChoosen=true;
+    }
     else if (attackCharacterChoosen === true && defendCharacterChoosen === false){
       var tmp = eTargetId +"Obj"
       defendObj=characterProfilesObj[tmp];
@@ -44,12 +53,14 @@
       var attackerChoosenImg = $("#" + attackObj.name).attr('src');
       $('#attackerImg').attr('src',attackerChoosenImg)
       $('.' + attackObj.name).hide();
+      $('#dmzAttack').text('Click character image to choose the evil character');
     }// end of Attacker move
     else if (attackCharacterChoosen && defendCharacterChoosen) {
       var defenderChoosenImg = $("#" + defendObj.name).attr('src');
       $('#defenderImg').attr('src',defenderChoosenImg)
       $('.' + defendObj.name).hide();
       $('#dmzAttack').text('Click here to Attack');
+      $('.defender').show();
     }// end of Defender move
     outputDmzHealthPoints()
   }//end of moveCharacterImg()
@@ -57,6 +68,8 @@
   function doBattle(){
     var attackerDead;
     var defenderDead;
+    var computerGuess = fightSrc[Math.floor(Math.random()*fightSrc.length)];
+    $('#dmzImg').attr('src',computerGuess).show();
     defendObj.healthPoints -= attackObj.currentAttackPoints;
     if (defendObj.healthPoints <= 0) {
       defendObj.healthPoints=0;
@@ -93,10 +106,22 @@
       gameOver=true;
     }
     else if (defenderDead) {
-      $('#defenderImg').attr('src',ripSrc[3-badGuys])
-      $('#dmzAttack').text('Click here to choose new defender');
-      defendCharacterChoosen=false;
+      $('#defenderImg').attr('src',ripSrc[3-badGuys]);
       badGuys--;
+      if (badGuys > 0) {
+        $('#dmzAttack').text('Click character image to choose new defender');
+      }
+      else{
+        $('#dmzAttack').text('what to do?');
+        var tmp = $('#defenderImg').attr('src');
+        $("#" + defendObj.name).attr('src', tmp);
+        $("." + defendObj.name).show();
+        $("#" + defendObj.name + "-p2").text(0);
+        $('.defender').hide();
+        $('#dmzImg').hide();
+      }
+      defendCharacterChoosen=false;
+
       gameOver=true;
     }
 

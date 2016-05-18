@@ -5,6 +5,12 @@ var attackObj;
 var defendObj;
 var badGuys;
 var ripSrc = ['assets/images/rip1.jpg','assets/images/rip2.jpg','assets/images/rip3.jpg'];
+var fightSrc = ['assets/images/kapow.jpg',
+                'assets/images/boom.jpg',
+                'assets/images/pow.jpg',
+                'assets/images/splatt.jpg',
+                'assets/images/thwack.jpg',
+                'assets/images/zonk.jpg']
 var characterProfilesObj = {
       stalloneObj: {
         name: "stallone",
