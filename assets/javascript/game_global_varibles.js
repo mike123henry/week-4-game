@@ -4,6 +4,7 @@ var defendCharacterChoosen;
 var attackObj;
 var defendObj;
 var badGuys;
+var ripSrc = ['assets/images/rip1.jpg','assets/images/rip2.jpg','assets/images/rip3.jpg'];
 var characterProfilesObj = {
       stalloneObj: {
         name: "stallone",
@@ -24,7 +25,7 @@ var characterProfilesObj = {
       lundgrenObj: {
         name: "lundgren",
         image: "assets/images/lundgren.jpg",
-        healthPoints: 150,
+        healthPoints: 151,
         baseAttackPoints: 25,
         currentAttackPoints: 25,
         returnAttackPoints: 15
@@ -32,7 +33,7 @@ var characterProfilesObj = {
       jetliObj: {
         name: "jetli",
         image: "assets/images/jetli.jpg",
-        healthPoints: 150,
+        healthPoints: 152,
         baseAttackPoints: 25,
         currentAttackPoints: 25,
         returnAttackPoints: 15

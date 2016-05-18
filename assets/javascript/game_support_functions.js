@@ -6,8 +6,25 @@
     defendObj={};
     badGuys=3;
     gameOver=false;
+    $('.stallone').show();
+    $('.statham').show();
+    $('.lundgren').show();
+    $('.jetli').show();
+    $('#attackerHP').hide();
+    $('#defenderHP').hide();
+    $('#stallone-p2').text(characterProfilesObj.stalloneObj.healthPoints);
+    $('#statham-p2').text(characterProfilesObj.stathamObj.healthPoints);
+    $('#lundgren-p2').text(characterProfilesObj.lundgrenObj.healthPoints);
+    $('#jetli-p2').text(characterProfilesObj.jetliObj.healthPoints);
   }
-
+  function initNextBadGuy(){
+    var tmp = $('#defenderImg').attr('src');
+    $("#" + defendObj.name).attr('src', tmp);
+     $("." + defendObj.name).show();
+     $("#" + defendObj.name + "-p2").text(0);
+    defendObj={};
+    gameOver=false;
+  }
   function assignCombatants(eTargetId){
     if (attackCharacterChoosen === false){
       var tmp = eTargetId +"Obj"
@@ -21,6 +38,7 @@
     }//end of else if !defendCharacterChoosen
     moveCharacterImg();
   }//end of assignCombatants()
+
   function moveCharacterImg(){
     if (attackCharacterChoosen && !defendCharacterChoosen) {
       var attackerChoosenImg = $("#" + attackObj.name).attr('src');
@@ -35,19 +53,23 @@
     }// end of Defender move
     outputDmzHealthPoints()
   }//end of moveCharacterImg()
+
   function doBattle(){
+    var attackerDead;
+    var defenderDead;
     defendObj.healthPoints -= attackObj.currentAttackPoints;
     if (defendObj.healthPoints <= 0) {
       defendObj.healthPoints=0;
-      var defenderDead = true;
+      defenderDead = true;
     }
     else{
       defenderDead = false;
     }
     attackObj.healthPoints -= defendObj.returnAttackPoints;
+
     if (attackObj.healthPoints <= 0) {
       attackObj.healthPoints=0;
-      var attackerDead = true;
+      attackerDead = true;
     }
     else{
       attackerDead = false;
@@ -56,9 +78,14 @@
     outputDmzHealthPoints();
     evalGameWonStatus(defenderDead , attackerDead);
   }//end of attackFunction()
+
   function outputDmzHealthPoints(){
-    $('#attackerHP').text(attackObj.healthPoints);
-    $('#defenderHP').text(defendObj.healthPoints);
+    if (attackCharacterChoosen) {
+      $('#attackerHP').text(attackObj.healthPoints).show();
+    }
+    if (defendCharacterChoosen) {
+      $('#defenderHP').text(defendObj.healthPoints).show();
+    }
   }
   function evalGameWonStatus(defenderDead , attackerDead){
         if (attackerDead) {
@@ -66,12 +93,11 @@
       gameOver=true;
     }
     else if (defenderDead) {
-      $('#dmzAttack').text('Choose new defender');
+      $('#defenderImg').attr('src',ripSrc[3-badGuys])
+      $('#dmzAttack').text('Click here to choose new defender');
       defendCharacterChoosen=false;
       badGuys--;
-      if (badGuys>0){
-
-      }
+      gameOver=true;
     }
 
 

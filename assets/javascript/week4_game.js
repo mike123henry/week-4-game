@@ -5,8 +5,15 @@ $(document).ready(function(){
     assignCombatants(e.target.id);
   }) //end .char_img').on("click"
   $('#dmzAttack').on("click", function(e) {
-    if (true) {}
-    doBattle();
+    if (gameOver && badGuys > 0 && attackObj.healthPoints > 0) {
+      initNextBadGuy();
+    }
+    else if (gameOver && (!badGuys > 0 || !attackObj.healthPoints > 0)) {
+      initlizeFirstGame();
+    }
+    else{
+      doBattle();
+    }
   }) //end #dmzAttack').on("click"
 //game functions
 
