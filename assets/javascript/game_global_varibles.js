@@ -3,11 +3,12 @@ var attackCharacterChoosen;
 var defendCharacterChoosen;
 var attackObj;
 var defendObj;
+var badGuys;
 var characterProfilesObj = {
       stalloneObj: {
         name: "stallone",
         image: "assets/images/stallone.jpg",
-        healthPoints: 150,
+        healthPoints: 15,
         baseAttackPoints: 25,
         currentAttackPoints: 25,
         returnAttackPoints: 15
