@@ -10,12 +10,13 @@ var fightSrc = ['assets/images/kapow.jpg',
                 'assets/images/pow.jpg',
                 'assets/images/splatt.jpg',
                 'assets/images/thwack.jpg',
-                'assets/images/zonk.jpg']
+                'assets/images/zonk.jpg'];
 var characterProfilesObj = {
       stalloneObj: {
         name: "stallone",
         image: "assets/images/stallone.jpg",
         healthPoints: 15,
+        healthPointsPreserve:15,
         baseAttackPoints: 25,
         currentAttackPoints: 25,
         returnAttackPoints: 15
@@ -24,6 +25,7 @@ var characterProfilesObj = {
         name: "statham",
         image: "assets/images/statham.jpg",
         healthPoints: 150,
+        healthPointsPreserve:150,
         baseAttackPoints: 25,
         currentAttackPoints: 25,
         returnAttackPoints: 15
@@ -32,6 +34,7 @@ var characterProfilesObj = {
         name: "lundgren",
         image: "assets/images/lundgren.jpg",
         healthPoints: 151,
+        healthPointsPreserve:151,
         baseAttackPoints: 25,
         currentAttackPoints: 25,
         returnAttackPoints: 15
@@ -40,6 +43,7 @@ var characterProfilesObj = {
         name: "jetli",
         image: "assets/images/jetli.jpg",
         healthPoints: 152,
+        healthPointsPreserve:152,
         baseAttackPoints: 25,
         currentAttackPoints: 25,
         returnAttackPoints: 15

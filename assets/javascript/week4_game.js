@@ -9,7 +9,7 @@ $(document).ready(function(){
       doBattle();
     }
     else{
-      //do nothing id dmzAttack is clicked
+      initlizeFirstGame();
     }
   }) //end #dmzAttack').on("click"
 //game functions

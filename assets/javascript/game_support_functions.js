@@ -6,6 +6,10 @@
     defendObj={};
     badGuys=3;
     gameOver=false;
+    characterProfilesObj.stalloneObj.healthPoints = characterProfilesObj.stalloneObj.healthPointsPreserve;
+    characterProfilesObj.stathamObj.healthPoints = characterProfilesObj.stathamObj.healthPointsPreserve;
+    characterProfilesObj.lundgrenObj.healthPoints = characterProfilesObj.lundgrenObj.healthPointsPreserve;
+    characterProfilesObj.jetliObj.healthPoints = characterProfilesObj.jetliObj.healthPointsPreserve;
     $('.stallone').show();
     $('.statham').show();
     $('.lundgren').show();
@@ -17,6 +21,13 @@
     $('#lundgren-p2').text(characterProfilesObj.lundgrenObj.healthPoints);
     $('#jetli-p2').text(characterProfilesObj.jetliObj.healthPoints);
     $('#dmzAttack').text('Click character image to choose your character');
+    $('#stallone').attr('src', characterProfilesObj.stalloneObj.image);
+    $('#statham').attr('src', characterProfilesObj.stathamObj.image);
+    $('#lundgren').attr('src', characterProfilesObj.lundgrenObj.image);
+    $('#jetli').attr('src', characterProfilesObj.jetliObj.image);
+    $('.defender').hide();
+    $('#attackerImg').hide();
+    $('#dmzImg').hide();
   }
   function initNextBadGuy(){
     var tmp = $('#defenderImg').attr('src');
@@ -51,18 +62,19 @@
   function moveCharacterImg(){
     if (attackCharacterChoosen && !defendCharacterChoosen) {
       var attackerChoosenImg = $("#" + attackObj.name).attr('src');
-      $('#attackerImg').attr('src',attackerChoosenImg)
+      $('#attackerImg').attr('src',attackerChoosenImg);
       $('.' + attackObj.name).hide();
       $('#dmzAttack').text('Click character image to choose the evil character');
+      $('#attackerImg').show();
     }// end of Attacker move
     else if (attackCharacterChoosen && defendCharacterChoosen) {
       var defenderChoosenImg = $("#" + defendObj.name).attr('src');
-      $('#defenderImg').attr('src',defenderChoosenImg)
+      $('#defenderImg').attr('src',defenderChoosenImg);
       $('.' + defendObj.name).hide();
       $('#dmzAttack').text('Click here to Attack');
       $('.defender').show();
     }// end of Defender move
-    outputDmzHealthPoints()
+    outputDmzHealthPoints();
   }//end of moveCharacterImg()
 
   function doBattle(){
@@ -102,8 +114,9 @@
   }//end of outputDmzHealthPoints()
 
   function evalGameWonStatus(defenderDead , attackerDead){
-        if (attackerDead) {
+    if (attackerDead) {
       $('#dmzAttack').text('Your Dead Game Over -- Click here to reset');
+      $('#dmzImg').attr('src', 'assets/images/frownyFace.jpg');
       gameOver=true;
     }
     else if (defenderDead) {
@@ -127,17 +140,8 @@
   }//end of evalGameWonStatus()
 
   function winnerFlash(){
-    var tmp = $('#dmzAttack').css("background-color");
     $('#dmzAttack').text('WINNER!!');
     $('#dmzAttack').css("background-color", "green");
-
-    //var cssRed = $('#dmzAttack').css("background-color", "red");
-    //var cssGrn = $('#dmzAttack').css("background-color", "green");
-
-    //setTimeout(function(){$('#dmzAttack').css("background-color", "red")}, 3000);
-    //setTimeout(function(){$('#dmzAttack').css("background-color", "green")}, 3000);
-    //setTimeout(function(){$('#dmzAttack').text('Click here to reset the game')}, 3000);
-    //setTimeout(function(){$('#dmzAttack').css("background-color", rgb(0,0,0))}, 3);
     setTimeout(function(){ setRed();}, 3000);
   }
 
