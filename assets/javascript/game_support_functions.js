@@ -10,6 +10,10 @@
     characterProfilesObj.stathamObj.healthPoints = characterProfilesObj.stathamObj.healthPointsPreserve;
     characterProfilesObj.lundgrenObj.healthPoints = characterProfilesObj.lundgrenObj.healthPointsPreserve;
     characterProfilesObj.jetliObj.healthPoints = characterProfilesObj.jetliObj.healthPointsPreserve;
+    characterProfilesObj.stalloneObj.currentAttackPoints = characterProfilesObj.stalloneObj.baseAttackPoints;
+    characterProfilesObj.stathamObj.currentAttackPoints = characterProfilesObj.stathamObj.baseAttackPoints;
+    characterProfilesObj.lundgrenObj.currentAttackPoints = characterProfilesObj.lundgrenObj.baseAttackPoints;
+    characterProfilesObj.jetliObj.currentAttackPoints = characterProfilesObj.jetliObj.baseAttackPoints;
     $('.stallone').show();
     $('.statham').show();
     $('.lundgren').show();
