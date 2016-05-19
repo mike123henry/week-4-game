@@ -90,7 +90,7 @@
     attackObj.currentAttackPoints += attackObj.baseAttackPoints;
     outputDmzHealthPoints();
     evalGameWonStatus(defenderDead , attackerDead);
-  }//end of attackFunction()
+  }//end of doBattle()
 
   function outputDmzHealthPoints(){
     if (attackCharacterChoosen) {
@@ -99,7 +99,8 @@
     if (defendCharacterChoosen) {
       $('#defenderHP').text(defendObj.healthPoints).show();
     }
-  }
+  }//end of outputDmzHealthPoints()
+
   function evalGameWonStatus(defenderDead , attackerDead){
         if (attackerDead) {
       $('#dmzAttack').text('Your Dead Game Over -- Click here to reset');
@@ -112,7 +113,7 @@
         $('#dmzAttack').text('Click character image to choose new defender');
       }
       else{
-        $('#dmzAttack').text('what to do?');
+        winnerFlash();
         var tmp = $('#defenderImg').attr('src');
         $("#" + defendObj.name).attr('src', tmp);
         $("." + defendObj.name).show();
@@ -121,11 +122,37 @@
         $('#dmzImg').hide();
       }
       defendCharacterChoosen=false;
-
       gameOver=true;
     }
+  }//end of evalGameWonStatus()
 
+  function winnerFlash(){
+    var tmp = $('#dmzAttack').css("background-color");
+    $('#dmzAttack').text('WINNER!!');
+    $('#dmzAttack').css("background-color", "green");
 
-}
+    //var cssRed = $('#dmzAttack').css("background-color", "red");
+    //var cssGrn = $('#dmzAttack').css("background-color", "green");
 
+    //setTimeout(function(){$('#dmzAttack').css("background-color", "red")}, 3000);
+    //setTimeout(function(){$('#dmzAttack').css("background-color", "green")}, 3000);
+    //setTimeout(function(){$('#dmzAttack').text('Click here to reset the game')}, 3000);
+    //setTimeout(function(){$('#dmzAttack').css("background-color", rgb(0,0,0))}, 3);
+    setTimeout(function(){ setRed();}, 3000);
+  }
+
+  function setRed(){
+    $('#dmzAttack').text('WINNER!! WINNER!!');
+    $('#dmzAttack').css("background-color", "red");
+    setTimeout(function(){ setGrn();}, 3000);
+  }
+  function setGrn(){
+    $('#dmzAttack').text('WINNER!! WINNER!! WINNER!!');
+    $('#dmzAttack').css("background-color", "green");
+    setTimeout(function(){ setReset();}, 3000);
+  }
+  function setReset(){
+    $('#dmzAttack').text('Click here to reset the game');
+    $('#dmzAttack').css("background-color", "rgba(0, 0, 0, 0)");
+  }
 }//end of file
