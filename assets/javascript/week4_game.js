@@ -8,7 +8,7 @@ $(document).ready(function(){
     if (!gameOver && badGuys > 0 && attackObj.healthPoints > 0) {
       doBattle();
     }
-    else if (attackObj.healthPoints > 0) {
+    else if (gameOver && badGuys > 0 && attackObj.healthPoints > 0) {
       //add something here to handle the click on the wrong spot
       //maybe some audio......
     }

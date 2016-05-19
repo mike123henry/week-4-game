@@ -15,17 +15,17 @@ var characterProfilesObj = {
       stalloneObj: {
         name: "stallone",
         image: "assets/images/stallone.jpg",
-        healthPoints: 15,
-        healthPointsPreserve:15,
-        baseAttackPoints: 25,
-        currentAttackPoints: 25,
+        healthPoints: 100,
+        healthPointsPreserve:100,
+        baseAttackPoints: 20,
+        currentAttackPoints: 20,
         returnAttackPoints: 15
       },
       stathamObj: {
         name: "statham",
         image: "assets/images/statham.jpg",
-        healthPoints: 150,
-        healthPointsPreserve:150,
+        healthPoints: 125,
+        healthPointsPreserve:125,
         baseAttackPoints: 25,
         currentAttackPoints: 25,
         returnAttackPoints: 15
@@ -33,20 +33,20 @@ var characterProfilesObj = {
       lundgrenObj: {
         name: "lundgren",
         image: "assets/images/lundgren.jpg",
-        healthPoints: 151,
-        healthPointsPreserve:151,
-        baseAttackPoints: 25,
-        currentAttackPoints: 25,
-        returnAttackPoints: 15
+        healthPoints: 85,
+        healthPointsPreserve:85,
+        baseAttackPoints: 30,
+        currentAttackPoints: 30,
+        returnAttackPoints: 10
       },
       jetliObj: {
         name: "jetli",
         image: "assets/images/jetli.jpg",
-        healthPoints: 152,
-        healthPointsPreserve:152,
-        baseAttackPoints: 25,
-        currentAttackPoints: 25,
-        returnAttackPoints: 15
+        healthPoints: 75,
+        healthPointsPreserve:75,
+        baseAttackPoints: 35,
+        currentAttackPoints: 35,
+        returnAttackPoints: 5
       }
   }
 }

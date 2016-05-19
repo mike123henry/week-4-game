@@ -146,18 +146,18 @@
   function winnerFlash(){
     $('#dmzAttack').text('WINNER!!');
     $('#dmzAttack').css("background-color", "green");
-    setTimeout(function(){ setRed();}, 3000);
+    setTimeout(function(){ setRed();}, 1000);
   }
 
   function setRed(){
     $('#dmzAttack').text('WINNER!! WINNER!!');
     $('#dmzAttack').css("background-color", "red");
-    setTimeout(function(){ setGrn();}, 3000);
+    setTimeout(function(){ setGrn();}, 1000);
   }
   function setGrn(){
     $('#dmzAttack').text('WINNER!! WINNER!! WINNER!!');
     $('#dmzAttack').css("background-color", "green");
-    setTimeout(function(){ setReset();}, 3000);
+    setTimeout(function(){ setReset();}, 1000);
   }
   function setReset(){
     $('#dmzAttack').text('Click here to reset the game');
