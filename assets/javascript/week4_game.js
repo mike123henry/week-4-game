@@ -1,5 +1,7 @@
 
 $(document).ready(function(){
+
+
   initlizeFirstGame();
   $('.char_img').on("click", function(e) {
     assignCombatants(e.target.id);

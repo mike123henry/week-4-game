@@ -14,6 +14,10 @@
     characterProfilesObj.stathamObj.currentAttackPoints = characterProfilesObj.stathamObj.baseAttackPoints;
     characterProfilesObj.lundgrenObj.currentAttackPoints = characterProfilesObj.lundgrenObj.baseAttackPoints;
     characterProfilesObj.jetliObj.currentAttackPoints = characterProfilesObj.jetliObj.baseAttackPoints;
+    characterProfilesObj.stalloneObj.alreadyFaught = false;
+    characterProfilesObj.stathamObj.alreadyFaught = false;
+    characterProfilesObj.lundgrenObj.alreadyFaught = false;
+    characterProfilesObj.jetliObj.alreadyFaught = false;
     $('.stallone').show();
     $('.statham').show();
     $('.lundgren').show();
@@ -44,25 +48,30 @@
     gameOver=false;
   }
   function assignCombatants(eTargetId){
-    if (attackCharacterChoosen === false){
-      var tmp = eTargetId +"Obj"
-      attackObj=characterProfilesObj[tmp];
-      attackCharacterChoosen=true;
-    }//end of if !attackCharacterChoosen
-    else if (attackCharacterChoosen === true && defendCharacterChoosen === false && badGuys >0 && badGuys < 3) {
-      initNextBadGuy();
-      var tmp = eTargetId +"Obj"
-      defendObj=characterProfilesObj[tmp];
-      defendCharacterChoosen=true;
-    }
-    else if (attackCharacterChoosen === true && defendCharacterChoosen === false){
-      var tmp = eTargetId +"Obj"
-      defendObj=characterProfilesObj[tmp];
-      defendCharacterChoosen=true;
-    }//end of else if !defendCharacterChoosen
-    moveCharacterImg();
-  }//end of assignCombatants()
-
+    var tmp2 = eTargetId +"Obj";
+    var tmp4 ="alreadyFaught"
+    var tmp3 = characterProfilesObj[tmp2][tmp4];
+    if (tmp3 === false) {
+      tmp3=true;
+      if (attackCharacterChoosen === false){
+        var tmp = eTargetId +"Obj"
+        attackObj=characterProfilesObj[tmp];
+        attackCharacterChoosen=true;
+      }//end of if !attackCharacterChoosen
+      else if (attackCharacterChoosen === true && defendCharacterChoosen === false && badGuys >0 && badGuys < 3) {
+        initNextBadGuy();
+        var tmp = eTargetId +"Obj"
+        defendObj=characterProfilesObj[tmp];
+        defendCharacterChoosen=true;
+      }
+      else if (attackCharacterChoosen === true && defendCharacterChoosen === false){
+        var tmp = eTargetId +"Obj"
+        defendObj=characterProfilesObj[tmp];
+        defendCharacterChoosen=true;
+      }//end of else if !defendCharacterChoosen
+      moveCharacterImg();
+    }//end of assignCombatants()
+  }
   function moveCharacterImg(){
     if (attackCharacterChoosen && !defendCharacterChoosen) {
       var attackerChoosenImg = $("#" + attackObj.name).attr('src');
@@ -146,18 +155,18 @@
   function winnerFlash(){
     $('#dmzAttack').text('WINNER!!');
     $('#dmzAttack').css("background-color", "green");
-    setTimeout(function(){ setRed();}, 1000);
+    var setRedTime = setTimeout(setRed, 500);
   }
 
   function setRed(){
     $('#dmzAttack').text('WINNER!! WINNER!!');
     $('#dmzAttack').css("background-color", "red");
-    setTimeout(function(){ setGrn();}, 1000);
+    var setGrnTime = setTimeout(setGrn, 500);
   }
   function setGrn(){
     $('#dmzAttack').text('WINNER!! WINNER!! WINNER!!');
     $('#dmzAttack').css("background-color", "green");
-    setTimeout(function(){ setReset();}, 1000);
+    var setResetTime = setTimeout(setReset, 500);
   }
   function setReset(){
     $('#dmzAttack').text('Click here to reset the game');

@@ -15,38 +15,42 @@ var characterProfilesObj = {
       stalloneObj: {
         name: "stallone",
         image: "assets/images/stallone.jpg",
-        healthPoints: 100,
-        healthPointsPreserve:100,
-        baseAttackPoints: 20,
-        currentAttackPoints: 20,
-        returnAttackPoints: 15
+        healthPoints: 104,
+        healthPointsPreserve:104,
+        baseAttackPoints: 9,
+        currentAttackPoints: 9,
+        returnAttackPoints: 18,
+        alreadyFaught: false
       },
       stathamObj: {
         name: "statham",
         image: "assets/images/statham.jpg",
-        healthPoints: 125,
-        healthPointsPreserve:125,
-        baseAttackPoints: 25,
-        currentAttackPoints: 25,
-        returnAttackPoints: 15
+        healthPoints: 95,
+        healthPointsPreserve:95,
+        baseAttackPoints: 10,
+        currentAttackPoints: 10,
+        returnAttackPoints: 22,
+        alreadyFaught: false
       },
       lundgrenObj: {
         name: "lundgren",
         image: "assets/images/lundgren.jpg",
-        healthPoints: 85,
-        healthPointsPreserve:85,
-        baseAttackPoints: 30,
-        currentAttackPoints: 30,
-        returnAttackPoints: 10
+        healthPoints: 75,
+        healthPointsPreserve:75,
+        baseAttackPoints: 17,
+        currentAttackPoints: 17,
+        returnAttackPoints: 4,
+        alreadyFaught: false
       },
       jetliObj: {
         name: "jetli",
         image: "assets/images/jetli.jpg",
-        healthPoints: 75,
-        healthPointsPreserve:75,
-        baseAttackPoints: 35,
-        currentAttackPoints: 35,
-        returnAttackPoints: 5
+        healthPoints: 70,
+        healthPointsPreserve:70,
+        baseAttackPoints: 25,
+        currentAttackPoints: 25,
+        returnAttackPoints: 5,
+        alreadyFaught: false
       }
   }
 }
