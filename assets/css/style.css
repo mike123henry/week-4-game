@@ -12,3 +12,9 @@
 
   border: 2px solid #00F;
 }
+
+#createbutton{
+  border: 5px solid #F00;
+  color: black;
+  background-color: white;
+}

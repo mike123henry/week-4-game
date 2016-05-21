@@ -54,9 +54,16 @@ var characterProfilesObj = {
         alreadyFaught: false
       }
 }//end global varibles
-buildTheDOM();
+
 //event listeners
 $(document).ready(function(){
+    $('#createbutton').on("click", function() {
+     buildTheDOM();
+     newEventListeners();
+    }); //end #createbutton').on("click"
+  }) //end of $(document).ready
+
+function newEventListeners(){
   $('.char_img').on("click", function(e) {
     assignCombatants(e.target.id);
   }); //end .char_img').on("click"
@@ -72,8 +79,8 @@ $(document).ready(function(){
       initlizeFirstGame();
     }
   }) //end #dmzAttack').on("click"
-// end event listeners
-}) //end of $(document).ready
+  }// newEventListeners()
+
 //support functions
 function initlizeFirstGame(){
     attackCharacterChoosen = false;
