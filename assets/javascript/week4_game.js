@@ -124,11 +124,11 @@ function initlizeFirstGame(){
     gameOver=false;
   }
   function assignCombatants(eTargetId){
-    var tmp2 = eTargetId +"Obj";
-    var tmp4 ="alreadyFaught"
-    var tmp3 = characterProfilesObj[tmp2][tmp4];
-    if (tmp3 === false) {
-      tmp3=true;
+    var characterObj = eTargetId +"Obj";
+    var alreadyFaught ="alreadyFaught"
+    var hasThisCharacterAlreadyFaught = characterProfilesObj[characterObj][alreadyFaught];
+    if (hasThisCharacterAlreadyFaught === false) {
+      characterProfilesObj[characterObj][alreadyFaught]=true;
       if (attackCharacterChoosen === false){
         var tmp = eTargetId +"Obj"
         attackObj=characterProfilesObj[tmp];
@@ -146,8 +146,8 @@ function initlizeFirstGame(){
         defendCharacterChoosen=true;
       }//end of else if !defendCharacterChoosen
       moveCharacterImg();
-    }//end of assignCombatants()
-  }
+    }//end of
+  }//end of assignCombatants()
   function moveCharacterImg(){
     if (attackCharacterChoosen && !defendCharacterChoosen) {
       var attackerChoosenImg = $("#" + attackObj.name).attr('src');
